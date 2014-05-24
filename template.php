@@ -38,6 +38,15 @@ function emptyensemble_theme() {
 			),
 			'template' => 'templates/emptyensemble.block.album_info',
 		),
+		'node_track_info' => array(
+			'variables' => array(
+				'tracks' => NULL,
+			),
+			'template' => 'templates/emptyensemble.node.track_info',
+		),
+		'ext_link_top_nav' => array(
+			'template' => 'templates/emptyensemble.ext_link_top_nav',
+		),
 	);
 	
 	return $theme;

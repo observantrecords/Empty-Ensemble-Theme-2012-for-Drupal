@@ -1,6 +1,6 @@
-		<div id="container">
-			<div id="masthead">
-				<header>
+		<div id="container" class="container">
+			<div id="masthead" class="row">
+				<header class="col-md-6">
 					<?php if ($site_name): ?>
 					<h1 id="title">
 						<a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home">
@@ -10,24 +10,15 @@
 					<?php endif; ?>
 				</header>
 
-				<nav id="nav-main">
+				<nav id="nav-main" class="col-md-6">
 					<?php if ($main_menu): ?>
 					<?php print theme('links__system_main_menu', array('links' => $main_menu)); ?>
 					<?php endif; ?>
 				</nav>
-
-				<nav id="nav-social">
-					<ul>
-						<li><a href="http://twitter.com/EmptyEnsemble"><img src="<?php echo OBSERVANTRECORDS_CDN_BASE_URI; ?>/web/images/icons/twitter.png" alt="[Twitter]" title="[Twitter]" /></a></li>
-						<li><a href="http://facebook.com/EmptyEnsemble"><img src="<?php echo OBSERVANTRECORDS_CDN_BASE_URI; ?>/web/images/icons/facebook.png" alt="[Facebook]" title="[Facebook]" /></a></li>
-						<li><a href="http://soundcloud.com/observantrecords"><img src="<?php echo OBSERVANTRECORDS_CDN_BASE_URI; ?>/web/images/icons/soundcloud.png" alt="[Soundcloud]" title="[Soundcloud]" /></a></li>
-						<li><a href="http://youtube.com/user/observantrecords"><img src="<?php echo OBSERVANTRECORDS_CDN_BASE_URI; ?>/web/images/icons/youtube.png" alt="[YouTube]" title="[YouTube]" /></a></li>
-					</ul>
-				</nav>
 			</div>
 
-			<div id="content">
-				<div id="column-1">
+			<div id="content" class="row">
+				<div id="column-1" class="col-md-8">
 				<?php if ($messages): ?>
 					<section id="success">
 					<?php print $messages; ?>
@@ -45,7 +36,7 @@
 				<?php //print $feed_icons; ?>
 				</div>
 
-				<div id="column-2">
+				<div id="column-2" class="col-md-4">
 				<?php if ($page['sidebar_first']): ?>
 					<?php print render($page['sidebar_first']); ?>
 				<?php endif; ?>
@@ -59,3 +50,27 @@
 
 			<img src="<?php echo 'http://' . $_SERVER['HTTP_HOST'] . '/' . variable_get('file_public_path', conf_path() . '/files');?>/images/empty_ensemble_empty_set_logo.png" class="bg" alt="[Empty Ensemble Logo]" />
 		</div>
+		<div id="footer">
+			<div class="container">
+				<footer class="row">
+					<nav id="footer-column-1" class="col-md-6">
+						<?php print theme('ext_link_top_nav'); ?>
+						
+						<p>
+							&copy <?php echo date('Y'); ?> Empty Ensemble
+						</p>
+					</nav>
+					
+					<section id="footer-column-3" class="col-md-6">
+						<?php
+						print theme('links', array(
+							'links' => menu_navigation_links('menu-footer-menu---information'),
+							'heading' => array(
+								'text' => 'See also ...',
+								'level' => 'h4'
+							),
+							));
+						?>
+					</section>
+				</footer>
+			</div>
